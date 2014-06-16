@@ -12,17 +12,7 @@
 pmodload 'helper'
 
 function prompt_sorin_pwd {
-  # don't truncate directories - JL
   _prompt_sorin_pwd="${PWD/#$HOME/~}"
-
-  # local pwd="${PWD/#$HOME/~}"
-
-  # if [[ "$pwd" == (#m)[/~] ]]; then
-  #   _prompt_sorin_pwd="$MATCH"
-  #   unset MATCH
-  # else
-  #   _prompt_sorin_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
-  # fi
 }
 
 function prompt_sorin_precmd {
@@ -54,12 +44,10 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{blue}➜%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%B%F{blue}➜%f%b'
   zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}✕%f%b'
-  # zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f'
-  # zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
-  zstyle ':prezto:module:git:info:action' format ':%%B%F{yellow}%s%f%%b'
+  zstyle ':prezto:module:git:info:action' format '%%B%F{yellow}%s%f%%b'
   zstyle ':prezto:module:git:info:added' format ' %%B%F{green}✚%f%%b'
   zstyle ':prezto:module:git:info:ahead' format ' %%B%F{yellow}⬆%f%%b'
   zstyle ':prezto:module:git:info:behind' format ' %%B%F{yellow}⬇%f%%b'
@@ -67,7 +55,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:commit' format '%F{green}%.7c%f'
   zstyle ':prezto:module:git:info:deleted' format ' %%B%F{red}✖%f%%b'
   zstyle ':prezto:module:git:info:modified' format ' %%B%F{blue}✱%f%%b'
-  zstyle ':prezto:module:git:info:position' format ':%F{red}%p%f'
+  zstyle ':prezto:module:git:info:position' format '%F{red}%p%f'
   zstyle ':prezto:module:git:info:renamed' format ' %%B%F{magenta}➜%f%%b'
   zstyle ':prezto:module:git:info:stashed' format ' %%B%F{cyan}✭%f%%b'
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'

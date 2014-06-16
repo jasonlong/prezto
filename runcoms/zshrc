@@ -50,6 +50,9 @@ setopt complete_aliases
 
 source /opt/github/env.sh
 
+export EDITOR=vim
+export VISUAL=vim
+
 export PATH="$HOME/bin:$PATH"
 export PATH="/opt/boxen/nodenv/versions/v0.10/bin:$PATH"
 
