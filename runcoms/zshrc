@@ -16,9 +16,6 @@ fi
 # Update Pretzo
 alias update_pretzo="cd ~/.zprezto/ && git pull upstream master && git submodule update --init --recursive"
 
-# Quick directory nav
-alias gg="cd ~/github/github"
-
 # Switch to master branch and pull
 alias gmp="git co master && git pull --prune"
 
