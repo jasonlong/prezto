@@ -26,10 +26,8 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
-  'syntax-highlighting' \
   'editor' \
   'history' \
-  'history-substring-search' \
   'homebrew' \
   'directory' \
   'osx' \
@@ -38,6 +36,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'ruby' \
   'git' \
+  'syntax-highlighting' \
+  'history-substring-search' \
   'prompt'
 
 #

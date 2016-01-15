@@ -14,16 +14,19 @@ fi
 # Customize to your needs...
 
 # Update Pretzo
-alias update_pretzo="cd ~/.zprezto/ && git pull upstream master && git submodule update --init --recursive"
+alias update_pretzo="cd ~/.zprezto/ && git submodule foreach git reset --hard && git pull && git submodule update --init --recursive"
 
 # Switch to master branch and pull
 alias gmp="git co master && git pull --prune"
 
+# Run migrations
+alias dbm="bin/rake db:migrate && sr"
+
 # Undo schema.rb changes
 alias sr="git co -- db/schema.rb"
 
-# MacVim
-alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g"
+# Git goodies
+alias gg='noglob gg'
 
 # script/server
 alias ss="script/server"
@@ -31,21 +34,20 @@ alias ss="script/server"
 # git jk
 alias gitjk="history 10 | tail -r | gitjk_cmd"
 
+# Make `rm` put stuff in trash
+alias rm="trash"
+
 # zmv ftw
 autoload -U zmv
 # alias for zmv for no quotes
 # mmv *.c.orig orig/*.c
 alias mmv='noglob zmv -W'
 
-alias vim='/opt/boxen/homebrew/bin/vim'
-
 # fix duplicate "open with" entries
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
 
 # This is needed for hub/git autocompletion
 setopt complete_aliases
-
-source /opt/github/env.sh
 
 export EDITOR=vim
 export VISUAL=vim
