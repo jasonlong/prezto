@@ -16,6 +16,10 @@ fi
 # Update Pretzo
 alias update_pretzo="cd ~/.zprezto/ && git submodule foreach git reset --hard && git pull && git submodule update --init --recursive"
 
+alias show_hidden_files="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+
+alias hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app
+"
 # Switch to master branch and pull
 alias gmp="git co master && git pull --prune"
 
@@ -23,7 +27,7 @@ alias gmp="git co master && git pull --prune"
 alias dbm="bin/rake db:migrate && sr"
 
 # Undo schema.rb changes
-alias sr="git co -- db/schema.rb"
+alias sr="git co -- db/structure.sql"
 
 # Git goodies
 alias gg='noglob gg'
@@ -52,9 +56,13 @@ setopt complete_aliases
 export EDITOR=vim
 export VISUAL=vim
 
+export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 export PATH="/opt/boxen/nodenv/versions/v0.10/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(fasd --init auto)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
